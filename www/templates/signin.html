@@ -1,0 +1,39 @@
+require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+     require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+
+
+        var myChart = ec.init(document.getElementById('main'))
+        myChart.setOption({
+        tooltip: {
+            show: true
+        },
+        legend: {
+            data: ['阅读量']
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: xvalue
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                "name": "阅读量",
+                "type": "bar",
+                "data": yvalue
+            }
+        ]
+    });
